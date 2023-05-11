@@ -17,7 +17,7 @@ Then ensure that you've built the extension for the release.
     python setup.py build_ext
     # Remove the any accidentally added so files
     rm -rf hunspell/*.so
-    python setup.py test # Should pass with changes
+    pytest # Should pass with changes
 
 ## Commiting Changes
 
@@ -33,9 +33,4 @@ To release, run through the following:
 
     rm -rf dist
     git tag `cat VERSION`
-    python setup.py sdist
-    pip install dist/*
-    # Check the tar version matches expected release version
-    git push
     git push --tags
-    twine upload dist/*
